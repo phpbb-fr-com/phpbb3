@@ -233,12 +233,34 @@ class phpbb_template_template_test extends phpbb_test_case
 				'value',
 			),
 			array(
+				'include_define.html',
+				array('VARIABLE' => 'value'),
+				array(),
+				array(),
+				'value',
+			),
+			array(
 				'loop_vars.html',
 				array(),
 				array('loop' => array(array('VARIABLE' => 'x'), array('VARIABLE' => 'y')), 'loop.inner' => array(array(), array())),
 				array('loop'),
 				'',
-			),/* no top level nested loops
+			),
+			array(
+				'include_define_variable.html',
+				array('VARIABLE' => 'variable.html'),
+				array(),
+				array(),
+				'variable.html',
+			),
+			array(
+				'include_loop_define.html',
+				array('VARIABLE' => 'value'),
+				array('loop' => array(array('NESTED_FILE' => 'variable.html'))),
+				array(),
+				'value',
+			),
+			/* no top level nested loops
 			array(
 				'loop_vars.html',
 				array(),
